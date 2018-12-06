@@ -12,3 +12,8 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
 RUN rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm; yum update; yum install -y  libunwind libicu; yum install -y  dotnet-hosting-2.0.6
 RUN yum -y install libreswan;  yum install -y sysvinit-tools; systemctl enable ipsec
+
+EXPOSE 500
+EXPOSE 4500
+EXPOSE 50
+EXPOSE 51
