@@ -17,3 +17,5 @@ EXPOSE 500
 EXPOSE 4500
 EXPOSE 50
 EXPOSE 51
+
+CMD ["/usr/sbin/init"]
