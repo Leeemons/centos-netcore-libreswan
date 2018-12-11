@@ -11,6 +11,13 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
 RUN rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm; yum update; yum install -y  libunwind libicu; yum install -y  dotnet-hosting-2.0.6
+RUN yum install -y aspnetcore-runtime-2.1
+RUN yum update \
+    && yum install -y \
+        ca-certificates
+        
+RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo        
+RUN yum -y install powershell       
 RUN yum -y install libreswan;  yum install -y sysvinit-tools; systemctl enable ipsec
 
 EXPOSE 500
